@@ -1,0 +1,33 @@
+
+<head>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<title></title>
+</head>
+<body>
+	<table class="table-item">
+	    {% for item in data %}
+		<tr class="table-item">
+		    <td class="table-item">{{ item.name }}</td>
+		    <td class="table-item">{{ item.age }}</td>
+		    <td class="table-item">{{ item.secretIdentity }}</td>
+			<td>
+			<table class="sub-table">
+				{% set counter = 0 %}
+				{% for power in item.powers %}
+				<tr>
+					{% if  counter == 0 %}
+						<td class="sub-table-item-first"> {{ power }} </td>	
+						{% set counter = counter + 1 %}
+					{% else %}
+						<td class="sub-table-item"> {{ power }} </td>	
+					{%endif%}
+				</tr>
+				{% endfor %}
+			</table>
+			</td>
+		</tr>
+		
+
+	    {% endfor %}
+	</table>
+</body>
